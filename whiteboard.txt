@@ -1,0 +1,15 @@
+Ideas for web application
+
+- APOD for each day you've had a birthday. (Starting June 1995).
+- Random Images with count (at some max)
+- Singular day search, with extended information
+
+Stretch Goals
+
+- Date ranges
+- Search images by title (with title parameter)?
+
+Notes
+
+- On any feature, check if video, if video -> present link to video. Otherwise, show image.
+- Headpoint is received as a singular object if single date is pulled. Head point is received as an array of objects if multiple dates are pulled.

@@ -1,9 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <title>APOD NASA Site</title>
-  </head>
+<head>
+  <title>APOD NASA Site</title>
+</head>
 <body>
+  <div class="container">
+    <h2>Astronomy Picture of the Day (APOD)</h2>
+    <div class="row">
+      <div class="col-md">
 
+        <form id="dateSearch">
+          <div class="form-group">
+            <label for="dateInput">Select a Date</label>
+            <input type="date" class="form-control" id="dateInput">
+            <small id="dateHelp" class="form-text text-muted">Enter a date to receive an APOD!</small>
+            <button type="submit" class="btn btn-outline-success">Receive APOD</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md">
+        <div class="results">
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

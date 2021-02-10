@@ -1,0 +1,14 @@
+.col-md {
+  margin: 10px;
+  border-radius: 2px;
+  border-style: groove;
+  border-color: black;
+}
+
+#dateHelp{
+  margin-top: 5px;
+}
+
+.btn{
+  margin-top: 5px;
+}
