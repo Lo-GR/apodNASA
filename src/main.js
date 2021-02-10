@@ -65,7 +65,7 @@ $(document).ready(function(){
         if (body.media_type === "video"){
           $('#resultImg').append(`<iframe width="420" height="315" src="${body.url}"></iframe>`);
         } else {
-          $('#resultImg').append(`<img src="${body.url}" alt="space image" class="images">`);}
+          $('#resultImg').append(`<a href="${body.url}" target="_blank"><img src="${body.url}" alt="space image" class="images">`);}
       }, function (error) {
         $('#results').text(`There was an error processing your request: ${error}`);
       });

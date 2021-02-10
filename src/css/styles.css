@@ -22,12 +22,8 @@ html, body {
   transform:scale(.5); */
 }
 .images:hover {
-  -webkit-transform:scale(1.5); 
-  transform:scale(1.5);
-}
-
-.images:active {
-  transform:scale(3.0);
+  -webkit-transform:scale(2.0); 
+  transform:scale(2.0);
 }
 
 .col-md {
