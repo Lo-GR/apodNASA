@@ -7,13 +7,13 @@ html, body {
   width:100%;
   margin:0;
 }
-/* .images{
+.images{
   border: 2px solid black;
   padding: 2px;
   width: 20%;
   height: 20%;
-} */
-.images img {
+}
+.images {
   transition:transform 0.25s ease;
   width: 20%;
   height: 20%;
@@ -21,7 +21,7 @@ html, body {
   /* -webkit-transform:scale(.5); 
   transform:scale(.5); */
 }
-.images img:hover {
+.images:hover {
   -webkit-transform:scale(1.5); 
   transform:scale(1.5);
 }
