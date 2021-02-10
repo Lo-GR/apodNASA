@@ -13,14 +13,22 @@ $(document).ready(function(){
     const dateSearch = $("#dateInput").val();
     console.log(dateSearch);
     let promise = ApodReturn.searchAPOD(dateSearch);
+
+
     promise.then(function (response) {
       const body = JSON.parse(response);
+      console.log(body.media_type);
+      if (body.media_type === "video"){
+        $('#resultImg').html(`<iframe width="420" height="315" src="${body.url}"></iframe>`);
+      } else {
+        $('#resultImg').html(`<img src="${body.url}" alt="space image">`);}
       $('#resultDate').text(`${body.date}`);
-      $('#resultImg').html(`<img src="${body.url}" alt="space image">`);
       $('#resultDesc').text(body.explanation);
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`);
     });
+
+
     $("#resultDesc").show();
   });
 
