@@ -24,6 +24,7 @@ $(document).ready(function(){
         $('#resultImg').html(`<img src="${body.url}" alt="space image">`);}
       $('#resultDate').text(`${body.date}`);
       $('#resultDesc').text(body.explanation);
+
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`);
     });
@@ -37,8 +38,12 @@ $(document).ready(function(){
     promise2.then(function (response){
       console.log(response);
       const body = JSON.parse(response);
+      if (body[0].media_type === "video"){
+        $('#resultImg').html(`<iframe width="420" height="315" src="${body[0].url}"></iframe>`);
+      } else{
+        $('#resultImg').html(`<img src="${body[0].url}" alt="space image">`);
+      }
       $('#resultDate').text(`${body[0].date}`);
-      $('#resultImg').html(`<img src="${body[0].url}" alt="space image">`);
       $('#resultDesc').text(body[0].explanation);
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`);
