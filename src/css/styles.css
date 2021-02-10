@@ -3,12 +3,28 @@
   border: 2px groove black;
 }
 #resultDesc{
+  display: none;
   border: 2px solid black;
+  padding: 2px;
 }
 #dateHelp{
   margin-top: 5px;
 }
-
 .btn{
   margin-top: 5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

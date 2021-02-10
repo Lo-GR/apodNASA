@@ -14,4 +14,19 @@ export default class ApodReturn{
       request.send();
     });
   }
+  static randomAPOD(){
+    return new Promise(function(resolve, reject){
+      let request = new XMLHttpRequest();
+      const api = `https://api.nasa.gov/planetary/apod?api_key=${process.env.API_KEY}&count=1`;
+      request.onload = function(){
+        if (this.status === 200) {
+          resolve(request.response);
+        } else {
+          reject(request.response);
+        }
+      };
+      request.open("GET", api, true);
+      request.send();
+    });
+  }
 }
