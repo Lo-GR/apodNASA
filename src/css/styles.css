@@ -1,8 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   height:100%;
   width:100%;
   margin:0;
 }
+/* .images{
+  border: 2px solid black;
+  padding: 2px;
+  width: 20%;
+  height: 20%;
+} */
+.images img {
+  transition:transform 0.25s ease;
+  width: 20%;
+  height: 20%;
+
+  /* -webkit-transform:scale(.5); 
+  transform:scale(.5); */
+}
+.images img:hover {
+  -webkit-transform:scale(1.5); 
+  transform:scale(1.5);
+}
+
+.images:active {
+  transform:scale(3.0);
+}
+
 .col-md {
   margin: 10px;
   border: 2px groove black;
@@ -18,14 +45,41 @@ html, body {
 .btn{
   margin-top: 5px;
 }
-/* iframe {
-    width:50%;
-    height:auto;
-}
-/* .h_iframe {
-    height: 50%;
-    width:50%;
-} */ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
