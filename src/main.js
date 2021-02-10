@@ -18,7 +18,6 @@ $(document).ready(function(){
       $('#resultDate').text(`${body.date}`);
       $('#resultImg').html(`<img src="${body.url}" alt="space image">`);
       $('#resultDesc').text(body.explanation);
-      // $('#results').text(`${body.date}`);
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`);
     });
@@ -33,10 +32,27 @@ $(document).ready(function(){
       $('#resultDate').text(`${body[0].date}`);
       $('#resultImg').html(`<img src="${body[0].url}" alt="space image">`);
       $('#resultDesc').text(body[0].explanation);
-      // $('#results').text(`${body.date}`);
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`);
     });
     $("#resultDesc").show();
+  });
+
+  $("#bdayButton").click(function(){
+    const dateSearch = $("#dateInput").val();
+    let inputYear = parseInt(dateSearch.slice(0, 4));
+    const inputBday = dateSearch.slice(4, 10);
+    const currentYear = (new Date).getFullYear();
+    for (inputYear; inputYear < currentYear; inputYear++) {
+      let newYear = inputYear.toString() + inputBday;
+      console.log(newYear);
+      let promise = ApodReturn.searchAPOD(newYear);
+      promise.then(function (response) {
+        const body = JSON.parse(response);
+        $('#resultImg').append(`<img src="${body.url}" alt="space image">`);
+      }, function (error) {
+        $('#results').text(`There was an error processing your request: ${error}`);
+      });
+    }
   });
 });

@@ -1,6 +1,6 @@
 Ideas for web application
 
-- APOD for each day you've had a birthday. (Starting June 1995).
+- APOD for each day you've had a birthday. (Starting June 1995, up to 2020).
 - Random Images with count (at some max)
 - Singular day search, with extended information
 
@@ -8,8 +8,14 @@ Stretch Goals
 
 - Date ranges
 - Search images by title (with title parameter)?
+- Birthday image can tell whether or not the user has already had a current year's birthday
 
 Notes
 
 - On any feature, check if video, if video -> present link to video. Otherwise, show image.
 - Headpoint is received as a singular object if single date is pulled. Head point is received as an array of objects if multiple dates are pulled.
+
+Ways to get JS date: https://www.w3schools.com/js/js_date_methods.asp
+
+2021 - 1998
+1998 - 1999 - 2000
