@@ -62,7 +62,10 @@ $(document).ready(function(){
       let promise = ApodReturn.searchAPOD(newYear);
       promise.then(function (response) {
         const body = JSON.parse(response);
-        $('#resultImg').append(`<img src="${body.url}" alt="space image">`);
+        if (body.media_type === "video"){
+          $('#resultImg').append(`<iframe width="420" height="315" src="${body.url}"></iframe>`);
+        } else {
+          $('#resultImg').append(`<img src="${body.url}" alt="space image">`);}
       }, function (error) {
         $('#results').text(`There was an error processing your request: ${error}`);
       });

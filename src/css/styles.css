@@ -1,3 +1,8 @@
+html, body {
+  height:100%;
+  width:100%;
+  margin:0;
+}
 .col-md {
   margin: 10px;
   border: 2px groove black;
@@ -13,6 +18,16 @@
 .btn{
   margin-top: 5px;
 }
+/* iframe {
+    width:50%;
+    height:auto;
+}
+/* .h_iframe {
+    height: 50%;
+    width:50%;
+} */ 
+
+
 
 
 
