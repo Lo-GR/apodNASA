@@ -1,10 +1,10 @@
 .col-md {
   margin: 10px;
-  border-radius: 2px;
-  border-style: groove;
-  border-color: black;
+  border: 2px groove black;
 }
-
+#resultDesc{
+  border: 2px solid black;
+}
 #dateHelp{
   margin-top: 5px;
 }
