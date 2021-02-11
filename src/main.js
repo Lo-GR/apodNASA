@@ -14,6 +14,15 @@ function clearFields() {
 
 $(document).ready(function(){
 
+  $("#singleOp").click(function(){
+    $(".multiSearch").hide();
+    $(".singleSearch").show();
+  });
+  $("#multiOp").click(function(){
+    $(".multiSearch").show();
+    $(".singleSearch").hide();
+  })
+
   $("form#dateSearch").submit(function(event) {
     clearFields();
     event.preventDefault();
