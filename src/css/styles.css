@@ -6,8 +6,11 @@ html, body {
   width:100%;
   margin:0;
 }
-.multiSearch, #containVid, #containImg, #resultImg, #resultVid{
+body, .multiSearch, #containVid, #containImg, #resultImg, #resultVid{
   display: none;
+}
+body {
+  background-image: url("../../img/bg.png");
 }
 .images {
   border: 2px solid black;
@@ -30,12 +33,20 @@ html, body {
 }
 .col-md {
   margin: 10px;
+  padding: 10px;
   border: 2px groove black;
+  border-radius: 15px;
+  background-color: aliceblue;
+}
+.align-center {
+  text-align: center;
 }
 #resultDesc{
   display: none;
-  border: 2px solid black;
-  padding: 2px;
+  border: 2px groove gray;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: white;
 }
 #dateHelp{
   margin-top: 5px;

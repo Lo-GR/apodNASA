@@ -18,6 +18,7 @@ function clearFields() {
 }
 
 $(document).ready(function(){
+  $("body").show();
 
   $("#singleOp").click(function(){
     $(".multiSearch").hide();
@@ -26,7 +27,7 @@ $(document).ready(function(){
   $("#multiOp").click(function(){
     $(".multiSearch").show();
     $(".singleSearch").hide();
-  })
+  });
 
   $("form#dateSearch").submit(function(event) {
     clearFields();
@@ -61,7 +62,7 @@ $(document).ready(function(){
     let promise2 = ApodReturn.randomAPOD(random);
     promise2.then(function (response){
       if (random === 1){
-        console.log("got to 1 branch")
+        console.log("got to 1 branch");
         const body = JSON.parse(response);
         if (body[0].media_type === "video"){
           $('#resultVid').html(`<iframe width="840" height="630" src="${body[0].url}"></iframe>`);
@@ -75,11 +76,11 @@ $(document).ready(function(){
         $('#resultDate').text(`${body[0].date}`);
         $('#resultDesc').text(body[0].explanation);
       } else {
-        console.log(random)
-        console.log("got to multi branch")
+        console.log(random);
+        console.log("got to multi branch");
         const body = JSON.parse(response);
-        const urlArray = body.map(x => x.url) 
-        const typeArray = body.map(x => x.media_type) 
+        const urlArray = body.map(x => x.url);
+        const typeArray = body.map(x => x.media_type);
         for (let index = 0; index < urlArray.length; index++){
           if (typeArray[index] === "video"){
             $('#resultVid').append(`<iframe width="210" height="157.5" src="${urlArray[index]}"></iframe>`);
@@ -90,13 +91,13 @@ $(document).ready(function(){
             $("#containImg").show();
             $("#resultImg").show();
             $("#resultDesc").show();
-            $("#resultDesc").text(`Here are your ${random} random APODs`);
           }
         }
       }
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`);
     });
+    $("#resultDesc").append(`<div class="align-center">Here are your ${random} random APODs:</div>`);
     $("#resultDesc").show();
   });
 
@@ -123,8 +124,8 @@ $(document).ready(function(){
         $('#results').text(`There was an error processing your request: ${error}`);
       });
       $("#resultDesc").show();
-      $("#resultDesc").text("Here are the images and videos from your birthday each year!");
     }
+    $("#resultDesc").append(`<div class="align-center">Here are the images and videos from your birthday each year!</div>`);
   });
 
   $("#multiButton").click(function(){
@@ -136,21 +137,23 @@ $(document).ready(function(){
     let promise = ApodReturn.multipleAPOD(startDate, endDate);
     promise.then(function(response){
       const body = JSON.parse(response);
-      const urlArray = body.map(x => x.url) 
-      const typeArray = body.map(x => x.media_type) 
+      const urlArray = body.map(x => x.url);
+      const typeArray = body.map(x => x.media_type);
       for (let index = 0; index < urlArray.length; index++){
         if (typeArray[index] === "video"){
           $('#resultVid').append(`<iframe width="210" height="157.5" src="${urlArray[index]}"></iframe>`);
+          $("#containVid").show();
           $("#resultVid").show();
         } else {
           $('#resultImg').append(`<a href="${urlArray[index]}" target="_blank"><img src="${urlArray[index]}" alt="space image" class="images">`);
+          $("#containImg").show();
           $("#resultImg").show();
         }
       }
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`); 
-    })
+    });
     $("#resultDesc").show();
-      $("#resultDesc").text("Here are the images and videos between the dates you selected!");
+    $("#resultDesc").append(`<div class="align-center">Here are the images and videos between the dates you selected!</div>`);
   });
 });
