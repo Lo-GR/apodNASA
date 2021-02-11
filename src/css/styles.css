@@ -10,7 +10,7 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-body, .multiSearch, #containVid, #containImg, #resultImg, #resultVid{
+body, .multiSearch, .moon, #containVid, #containImg, #resultImg, #resultVid{
   display: none;
 }
 body {
@@ -105,6 +105,10 @@ h2 {
   right: 5px;
 }
 
+.moon {
+  margin-top: 30px;
+  text-align: center;
+}
 
 
 

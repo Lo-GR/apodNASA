@@ -15,6 +15,7 @@ function clearFields() {
   $("#containVid").hide();
   $("#resultDate").empty();
   $("#resultDesc").empty();
+  $(".moon").hide();
 }
 
 $(document).ready(function(){
@@ -102,7 +103,8 @@ $(document).ready(function(){
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`);
     });
-    $("#resultDesc").append(`<div class="align-center">Here are your ${random} random APODs:</div>`);
+    $("#resultDesc").append(`<div class="align-center">Below are your ${random} random APODs</div>`);
+    $(".moon").show()
     $("#resultDesc").show();
   });
 
@@ -130,7 +132,8 @@ $(document).ready(function(){
       });
       $("#resultDesc").show();
     }
-    $("#resultDesc").append(`<div class="align-center">Here are the images and videos from your birthday each year!</div>`);
+    $("#resultDesc").append(`<div class="align-center">Below are the images and videos from your birthday each year!</div>`);
+    $(".moon").show()
   });
 
   $("#multiButton").click(function(){
@@ -159,6 +162,7 @@ $(document).ready(function(){
       $('#results').text(`There was an error processing your request: ${error}`); 
     });
     $("#resultDesc").show();
-    $("#resultDesc").append(`<div class="align-center">Here are the images and videos between the dates you selected!</div>`);
+    $("#resultDesc").append(`<div class="align-center">Below are the images and videos between the dates you selected!</div>`);
+    $(".moon").show()
   });
 });
