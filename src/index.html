@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
   <title>APOD NASA Site</title>
 </head>
+
 <body>
   <div class="container">
     <h2>Astronomy Picture of the Day (APOD)</h2>
@@ -21,15 +23,26 @@
           <div class="singleSearch">
             <div class="form-group">
               <label for="dateInput">Select a Date</label>
-              <input type="date" class="form-control" id="dateInput" min="1995-06-16">
-              <small id="dateHelp" class="form-text text-muted">Enter a date to receive an APOD!</small>
+              <input type="date" class="form-control" id="dateInput">
+              <small id="dateHelp" class="form-text text-muted">Enter a date to receive an APOD! </small>
               <button type="submit" class="btn btn-outline-success">Receive APOD</button>
               <button type="button" class="btn btn-outline-warning" id="bdayButton">Birthday Surprise</button>
             </div>
           </div>
 
           <div class="multiSearch">
-            <p>multisearch</p>
+            <div class="row">
+              <div class="col-sm">
+                <label for="dateStart">Select a Start Date</label>
+                <input type="date" class="form-control" id="dateStart">
+                <small id="dateHelp" class="form-text text-muted">Enter a date range to receive all APODs within those dates. </small>
+              </div>
+              <div class="col-sm">
+                <label for="dateEnd">Select an End Date</label>
+                <input type="date" class="form-control" id="dateEnd">
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-success" id="multiButton">Receive APODs</button>
           </div>
 
         </form>

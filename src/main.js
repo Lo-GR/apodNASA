@@ -76,7 +76,6 @@ $(document).ready(function(){
     const currentYear = (new Date).getFullYear();
     for (inputYear; inputYear < currentYear; inputYear++) {
       let newYear = inputYear.toString() + inputBday;
-      console.log(newYear);
       let promise = ApodReturn.searchAPOD(newYear);
       promise.then(function (response) {
         const body = JSON.parse(response);
@@ -90,5 +89,28 @@ $(document).ready(function(){
       $("#resultDesc").show();
       $("#resultDesc").text("Here are the images and videos from your birthday each year!");
     }
+  });
+
+  $("#multiButton").click(function(){
+    clearFields();
+    const startDate = $("#dateStart").val();
+    const endDate = $("#dateEnd").val();
+    console.log(startDate);
+    console.log(endDate);
+    let promise = ApodReturn.multipleAPOD(startDate, endDate);
+    promise.then(function(response){
+      const body = JSON.parse(response);
+      const urlArray = body.map(x => x.url) 
+      const typeArray = body.map(x => x.media_type) 
+      for (let index = 0; index < urlArray.length; index++){
+        if (typeArray[index] === "video"){
+          $('#resultImg').append(`<iframe width="420" height="315" src="${urlArray[index]}"></iframe>`)
+        } else {
+          $('#resultImg').append(`<a href="${urlArray[index]}" target="_blank"><img src="${urlArray[index]}" alt="space image" class="images">`);
+        }
+      }
+    }, function (error) {
+      $('#results').text(`There was an error processing your request: ${error}`); 
+    })
   });
 });

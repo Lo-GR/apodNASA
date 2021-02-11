@@ -9,6 +9,7 @@ Stretch Goals
 - Date ranges
 - Search images by title (with title parameter)?
 - Birthday image can tell whether or not the user has already had a current year's birthday
+- Explanation pop-up for users for instructions on using the site
 
 Notes
 
