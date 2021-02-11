@@ -6,11 +6,20 @@ html, body {
   width:100%;
   margin:0;
 }
+html {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 body, .multiSearch, #containVid, #containImg, #resultImg, #resultVid{
   display: none;
 }
 body {
   background-image: url("../../img/bg.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+h2 {
+  color:white;
 }
 .images {
   border: 2px solid black;
@@ -62,8 +71,38 @@ body {
   margin-top: 5px;
 }
 
+.popup {
+  font-size: 20px;
+  background-color: white;
+  padding: 15px;
+  position: absolute;
+  width: 600px;
+  top: 30%;
+  left: 50%;
+  margin-left: -300px;
+  border: 5px groove gray;
+  border-radius: 15px;
+  box-shadow: 15px 10px 10px 10px rgba(0, 0, 0, 0.2);
+  display: none;
+  
+}
+.popup-header{
+  text-align: center;
+}
+.popup-text {
+  margin-top: 10px;
+  font-size: small;
+}
 
+.popup-text {
+  color: black;
+}
 
+#popup-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
 
 
 

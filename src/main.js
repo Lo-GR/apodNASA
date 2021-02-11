@@ -19,6 +19,11 @@ function clearFields() {
 
 $(document).ready(function(){
   $("body").show();
+  $(".popup").show();
+
+  $("button#popup-button").click(function() {
+    $(".popup").slideUp();
+  });
 
   $("#singleOp").click(function(){
     $(".multiSearch").hide();

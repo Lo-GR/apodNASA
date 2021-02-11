@@ -51,7 +51,7 @@
             <button type="button" class="btn btn-outline-primary" id="randomButton">Receive a Random APOD</button>
           </div>
           <div class="col-sm">
-            <input type="number" class="form-control" id="randomAmount" min="1" max="20">
+            <input type="number" class="form-control" id="randomAmount" value="1" min="1" max="20">
             <small id="ranHelp" class="form-text text-muted">Enter Amount of Random Images(up to 20) </small>
           </div>
         </div>
@@ -72,6 +72,27 @@
       <h2>Videos</h2>
       <div id="resultVid">
       </div>
+    </div>
+    <div class="popup">
+      <div class="popup-header">
+        Welcome to Astronomy Pictures of the Day!
+      </div>
+      <div class="popup-text">
+        This Web Application is powered by an <a href="https://api.nasa.gov/index.html" target="_blank">API provided by NASA.</a> 
+      </div>
+      <div class="popup-text">
+        NASA provides an astronomy picture or video everyday. The APOD has been running since June 16, 1995. Here are the features currently available:
+      </div>
+      <ul class="popup-text">
+        <li>Retrieve an APOD of a specific date.</li>
+        <li>Retrieve an APOD for every Birthday you've had since APOD began</li>
+        <li>Retrieve random APODs up to 20</li>
+        <li>Retrieve all APODs between a date range. Please note: The wider the date range, the longer it will take for data to load.</li>
+      </ul>
+      <div class="popup-text">
+        Authors: <a href="https://github.com/KirbyPaint" target="_blank">Ash Porter</a> and <a href="https://github.com/Lo-GR" target="_blank">Logan Roth</a>. To see credits of images and full APOD archive, please visit the <a href="https://apod.nasa.gov/apod/astropix.html" target="_blank">APOD Official Webpage.</a>
+      </div>
+      <button type="button" class="btn btn-dark" id="popup-button">x</button>
     </div>
   </div>
 </body>
