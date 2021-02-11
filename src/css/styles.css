@@ -23,6 +23,7 @@ h2 {
 }
 .images {
   border: 2px solid black;
+  background-color: white;
   padding: 2px;
   width: 20%;
   height: 20%;
