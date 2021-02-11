@@ -6,9 +6,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import ApodReturn from './apod.js';
 
+function clearFields() {
+  $("#resultImg").empty();
+  $("#resultDate").empty();
+  $("#resultDesc").empty();
+}
+
 $(document).ready(function(){
 
   $("form#dateSearch").submit(function(event) {
+    clearFields();
     event.preventDefault();
     const dateSearch = $("#dateInput").val();
     console.log(dateSearch);
@@ -34,6 +41,7 @@ $(document).ready(function(){
   });
 
   $("#randomButton").click(function(){
+    clearFields();
     let promise2 = ApodReturn.randomAPOD();
     promise2.then(function (response){
       console.log(response);
@@ -52,6 +60,7 @@ $(document).ready(function(){
   });
 
   $("#bdayButton").click(function(){
+    clearFields();
     const dateSearch = $("#dateInput").val();
     let inputYear = parseInt(dateSearch.slice(0, 4));
     const inputBday = dateSearch.slice(4, 10);
@@ -69,6 +78,8 @@ $(document).ready(function(){
       }, function (error) {
         $('#results').text(`There was an error processing your request: ${error}`);
       });
+      $("#resultDesc").show();
+      $("#resultDesc").text("Here are the images and videos from your birthday each year!");
     }
   });
 });
