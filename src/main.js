@@ -8,6 +8,11 @@ import ApodReturn from './apod.js';
 
 function clearFields() {
   $("#resultImg").empty();
+  $("#resultVid").empty();
+  $("#resultImg").hide();
+  $("#resultVid").hide();
+  $("#containImg").hide();
+  $("#containVid").hide();
   $("#resultDate").empty();
   $("#resultDesc").empty();
 }
@@ -35,33 +40,60 @@ $(document).ready(function(){
       const body = JSON.parse(response);
       console.log(body.media_type);
       if (body.media_type === "video"){
-        $('#resultImg').html(`<iframe width="420" height="315" src="${body.url}"></iframe>`);
+        $('#resultVid').html(`<iframe width="840" height="630" src="${body.url}"></iframe>`);
+        $("#containVid").show();
+        $("#resultVid").show();
       } else {
-        $('#resultImg').html(`<img src="${body.url}" alt="space image">`);}
+        $('#resultImg').html(`<img src="${body.url}" alt="space image" class="singleImage">`);
+        $("#containImg").show();
+        $("#resultImg").show();}
       $('#resultDate').text(`${body.date}`);
       $('#resultDesc').text(body.explanation);
-
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`);
     });
-
-
     $("#resultDesc").show();
   });
 
   $("#randomButton").click(function(){
     clearFields();
-    let promise2 = ApodReturn.randomAPOD();
+    const random = parseInt($("#randomAmount").val());
+    let promise2 = ApodReturn.randomAPOD(random);
     promise2.then(function (response){
-      console.log(response);
-      const body = JSON.parse(response);
-      if (body[0].media_type === "video"){
-        $('#resultImg').html(`<iframe width="420" height="315" src="${body[0].url}"></iframe>`);
-      } else{
-        $('#resultImg').html(`<img src="${body[0].url}" alt="space image">`);
+      if (random === 1){
+        console.log("got to 1 branch")
+        const body = JSON.parse(response);
+        if (body[0].media_type === "video"){
+          $('#resultVid').html(`<iframe width="840" height="630" src="${body[0].url}"></iframe>`);
+          $("#containVid").show();
+          $("#resultVid").show();
+        } else{
+          $('#resultImg').html(`<img src="${body[0].url}" alt="space image">`);
+          $("#containImg").show();
+          $("#resultImg").show();
+        }
+        $('#resultDate').text(`${body[0].date}`);
+        $('#resultDesc').text(body[0].explanation);
+      } else {
+        console.log(random)
+        console.log("got to multi branch")
+        const body = JSON.parse(response);
+        const urlArray = body.map(x => x.url) 
+        const typeArray = body.map(x => x.media_type) 
+        for (let index = 0; index < urlArray.length; index++){
+          if (typeArray[index] === "video"){
+            $('#resultVid').append(`<iframe width="210" height="157.5" src="${urlArray[index]}"></iframe>`);
+            $("#containVid").show();
+            $("#resultVid").show();
+          } else {
+            $('#resultImg').append(`<a href="${urlArray[index]}" target="_blank"><img src="${urlArray[index]}" alt="space image" class="images">`);
+            $("#containImg").show();
+            $("#resultImg").show();
+            $("#resultDesc").show();
+            $("#resultDesc").text(`Here are your ${random} random APODs`);
+          }
+        }
       }
-      $('#resultDate').text(`${body[0].date}`);
-      $('#resultDesc').text(body[0].explanation);
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`);
     });
@@ -80,9 +112,13 @@ $(document).ready(function(){
       promise.then(function (response) {
         const body = JSON.parse(response);
         if (body.media_type === "video"){
-          $('#resultImg').append(`<iframe width="420" height="315" src="${body.url}"></iframe>`);
+          $('#resultVid').append(`<iframe width="210" height="157.5" src="${body.url}"></iframe>`);
+          $("#containVid").show();
+          $("#resultVid").show();
         } else {
-          $('#resultImg').append(`<a href="${body.url}" target="_blank"><img src="${body.url}" alt="space image" class="images">`);}
+          $('#resultImg').append(`<a href="${body.url}" target="_blank"><img src="${body.url}" alt="space image" class="images">`);
+          $("#resultImg").show();
+          $("#containImg").show();}
       }, function (error) {
         $('#results').text(`There was an error processing your request: ${error}`);
       });
@@ -104,13 +140,17 @@ $(document).ready(function(){
       const typeArray = body.map(x => x.media_type) 
       for (let index = 0; index < urlArray.length; index++){
         if (typeArray[index] === "video"){
-          $('#resultImg').append(`<iframe width="420" height="315" src="${urlArray[index]}"></iframe>`)
+          $('#resultVid').append(`<iframe width="210" height="157.5" src="${urlArray[index]}"></iframe>`);
+          $("#resultVid").show();
         } else {
           $('#resultImg').append(`<a href="${urlArray[index]}" target="_blank"><img src="${urlArray[index]}" alt="space image" class="images">`);
+          $("#resultImg").show();
         }
       }
     }, function (error) {
       $('#results').text(`There was an error processing your request: ${error}`); 
     })
+    $("#resultDesc").show();
+      $("#resultDesc").text("Here are the images and videos between the dates you selected!");
   });
 });

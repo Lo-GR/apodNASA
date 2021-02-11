@@ -1,23 +1,19 @@
 * {
   box-sizing: border-box;
 }
-
 html, body {
   height:100%;
   width:100%;
   margin:0;
 }
-
-.multiSearch{
+.multiSearch, #containVid, #containImg, #resultImg, #resultVid{
   display: none;
 }
-.images{
+.images {
   border: 2px solid black;
   padding: 2px;
   width: 20%;
   height: 20%;
-}
-.images {
   transition:transform 0.25s ease;
   width: 20%;
   height: 20%;
@@ -29,7 +25,9 @@ html, body {
   -webkit-transform:scale(2.0); 
   transform:scale(2.0);
 }
-
+.singleImage {
+  max-width: 100%;
+}
 .col-md {
   margin: 10px;
   border: 2px groove black;
@@ -41,6 +39,13 @@ html, body {
 }
 #dateHelp{
   margin-top: 5px;
+}
+#resultImg, #resultVid {
+  text-align: center;
+  border: 5px groove gray;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 5px;
 }
 .btn{
   margin-top: 5px;

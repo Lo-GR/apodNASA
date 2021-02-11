@@ -46,7 +46,15 @@
           </div>
 
         </form>
-        <button type="button" class="btn btn-outline-primary" id="randomButton">Receive a Random APOD</button>
+        <div class="row">
+          <div class="col-sm">
+            <button type="button" class="btn btn-outline-primary" id="randomButton">Receive a Random APOD</button>
+          </div>
+          <div class="col-sm">
+            <input type="number" class="form-control" id="randomAmount" min="1" max="20">
+            <small id="ranHelp" class="form-text text-muted">Enter Amount of Random Images(up to 20) </small>
+          </div>
+        </div>
       </div>
       <div class="col-md">
         <div class="results">
@@ -55,7 +63,16 @@
         </div>
       </div>
     </div>
-    <div id="resultImg"></div>
+    <div id="containImg">
+      <h2>Images</h2>
+      <div id="resultImg">
+      </div>
+    </div>
+    <div id="containVid">
+      <h2>Videos</h2>
+      <div id="resultVid">
+      </div>
+    </div>
   </div>
 </body>
 
